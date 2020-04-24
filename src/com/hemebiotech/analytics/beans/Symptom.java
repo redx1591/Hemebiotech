@@ -1,11 +1,13 @@
 package com.hemebiotech.analytics.beans;
 
+import java.util.Comparator;
+
 /**
  * <b>Symptom's class define the structure of a symptom.</b>
  * <p>
  * Symptom is characterized by the following information:
  * <ul>
- * <li>A unique identifier given only once</li>
+ * <li>An unique identifier given only once</li>
  * <li>A name that is given to the symptom</li>
  * <li>A number that represent the occurences of the symptom</li>
  * </ul>
@@ -17,6 +19,9 @@ package com.hemebiotech.analytics.beans;
  */
 
 public class Symptom implements Comparable<Symptom> {
+
+	public static final Comparator<Symptom> BY_NAME = Comparator.comparing(Symptom::getName);
+	public static final Comparator<Symptom> BY_OCCUR = Comparator.comparing(Symptom::getNumberOfOccurences);
 
 	/**
 	 * Symptom ID . This ID is can't change once define
