@@ -20,16 +20,18 @@ import java.util.Comparator;
 
 public class Symptom implements Comparable<Symptom> {
 
+	/**
+	 * BY_NAME a comparator to sort Symptom object by their name
+	 * 
+	 */
 	public static final Comparator<Symptom> BY_NAME = Comparator.comparing(Symptom::getName);
-	public static final Comparator<Symptom> BY_OCCUR = Comparator.comparing(Symptom::getNumberOfOccurences);
 
 	/**
-	 * Symptom ID . This ID is can't change once define
+	 * BY_OCCUR a comparator to sort Symptom object by the number of occurences the
+	 * default sort order is ascending
 	 * 
-	 * @see Symptom(int, String)
-	 * @see Symptom#getId()
 	 */
-	private final int id;
+	public static final Comparator<Symptom> BY_OCCUR = Comparator.comparing(Symptom::getNumberOfOccurences);
 
 	/**
 	 * The number of occurrences
@@ -67,8 +69,8 @@ public class Symptom implements Comparable<Symptom> {
 	 * @param number Symptom's occurrences
 	 * 
 	 */
-	public Symptom(int id, String name, int number) {
-		this.id = id;
+	public Symptom(String name, int number) {
+
 		this.name = name;
 		this.numberOfOccurences = number;
 	}
@@ -116,6 +118,10 @@ public class Symptom implements Comparable<Symptom> {
 		this.numberOfOccurences = number;
 	}
 
+	public void incrementOccurences() {
+		this.numberOfOccurences++;
+	}
+
 	/**
 	 * Return the name of the Symptom
 	 * 
@@ -135,14 +141,10 @@ public class Symptom implements Comparable<Symptom> {
 		this.name = name;
 	}
 
-	/**
-	 * Return the Symptom unique identifier
-	 * 
-	 * @return Symptom's unique id
-	 */
-
-	public int getId() {
-		return id;
+	@Override
+	public String toString() {
+		// TODO Auto-generated method stub
+		return this.name + ": " + this.numberOfOccurences;
 	}
 
 }

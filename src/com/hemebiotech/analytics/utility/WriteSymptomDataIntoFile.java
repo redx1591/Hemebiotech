@@ -31,7 +31,7 @@ public class WriteSymptomDataIntoFile implements ISymptomWriter {
 
 		try {
 
-			FileWriter writeIntoFile = new FileWriter("result.out");
+			FileWriter writeIntoFile = new FileWriter(filePath);
 
 			for (Symptom symptom : symptomsListObject) {
 

@@ -13,5 +13,11 @@ import com.hemebiotech.analytics.beans.Symptom;
  */
 public interface ISymptomWriter {
 
+	/**
+	 * If no data is available, return an empty List
+	 * 
+	 * @param symptomsListObject list of all object we want to write into file
+	 * 
+	 */
 	void writeSymptoms(List<Symptom> symptomsListObject);
 }
